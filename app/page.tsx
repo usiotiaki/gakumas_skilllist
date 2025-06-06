@@ -1,103 +1,216 @@
+'use client'
+
 import Image from "next/image";
+import { useState } from 'react';
+import skillCards from "./data/skill_list.json";
+// import skillEffects from "./data/skill_effect.json";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [evolve, setChecked] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="w-full">
+      <header className="w-full shadow-md">
+        <h1>【学マス】スキルカード図鑑【非公式】</h1>
+      </header>
+      <main className="w-full flex">
+        <div className="w-96">
+          <div className="flex flex-wrap">
+            <div className="w-full p-2">
+              {/* カード詳細 */}
+              <div className="mb-2 w-full p-2 border border-gray-400 rounded-sm">
+                <div className="flex flex-wrap">
+                  <p className="pr-2 text-xs">
+                    <Image
+                      src={`/skillcard/${skillCards[0].ID}_${evolve?"evolve":"default"}.png`}
+                      alt={`${skillCards[0].name}${evolve?"+":""}`}
+                      width={50}
+                      height={50}
+                    />
+                    <span className="block">フリー</span>
+                    <span className="block">
+                      <span className="text-[.6rem] text-gray-400">開放PLv&nbsp;</span>{skillCards[0].plv}
+                    </span>
+                  </p>
+                  <div className="flex-1">
+                    <div className="mb-1 w-full border-b flex justify-between">
+                      <h3 className="text-sm font-semibold">{skillCards[0].name}{evolve?"+":""}</h3>
+                      <p className="text-xs">
+                        <label className="block">
+                          <input
+                            type="checkbox"
+                            checked={evolve}
+                            onChange={(e) => setChecked(e.target.checked)}
+                          />
+                          強化
+                        </label>
+                      </p>
+                    </div>
+                    {/* カード効果説明 */}
+                    <p
+                      className="text-xs"
+                      dangerouslySetInnerHTML={{ __html: evolve
+                        ? skillCards[0].detail_evolve
+                        : skillCards[0].detail_default }}>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* カスタマイズ */}
+              <div className="w-full">
+                <p className="mb-2 text-[.6rem] text-center font-semibold border-b border-green-500">
+                  <span className="inline-block px-2 border-t border-green-500 rounded-t-lg text-white bg-green-500">
+                    カスタマイズ可能数 {0}/{3}
+                  </span>
+                </p>
+                <div className="flex space-x-2 text-xs text-center">
+                  <p className="w-1/3">
+                    <label className="relative block mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                      <input type="checkbox" className="hidden" />
+                      <span className="block py-2 text-white">
+                        {"カスタム１-１"}
+                      </span>
+                      <span className="block leading-none">
+                        <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                          <Image
+                            src="/icon/p.png"
+                            alt="Pポイント"
+                            width={12}
+                            height={12}
+                            className="inline absolute left-1 top-0"
+                          />
+                          40
+                        </span>
+                      </span>
+                    </label>
+                    <label className="relative block mt-4 mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                      <span className="absolute left-[50%] -translate-x-1/2 -translate-y-full text-gray-400">
+                        ↓
+                      </span>
+                      <input type="checkbox" className="hidden" />
+                      <span className="block py-2 text-white">
+                        {"カスタム１-２"}
+                      </span>
+                      <span className="block leading-none">
+                        <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                          <Image
+                            src="/icon/p.png"
+                            alt="Pポイント"
+                            width={12}
+                            height={12}
+                            className="inline absolute left-1 top-0"
+                          />
+                          70
+                        </span>
+                      </span>
+                    </label>
+                  </p>
+                  <p className="w-1/3">
+                    <label className="relative block mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-purple-500 to-fuchsia-400">
+                      <input type="checkbox" className="hidden" />
+                      <span className="block py-2 text-white">
+                        {"カスタム２-１"}
+                      </span>
+                      <span className="block leading-none">
+                        <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                          <Image
+                            src="/icon/p.png"
+                            alt="Pポイント"
+                            width={12}
+                            height={12}
+                            className="inline absolute left-1 top-0"
+                          />
+                          70
+                        </span>
+                      </span>
+                    </label>
+                    <label className="relative block mt-4 mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-sky-500 to-cyan-300">
+                      <span className="absolute left-[50%] -translate-x-1/2 -translate-y-full text-gray-400">
+                        ↓
+                      </span>
+                      <input type="checkbox" className="hidden" />
+                      <span className="block py-2 text-white">
+                        {"カスタム２-２"}
+                      </span>
+                      <span className="block leading-none">
+                        <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                          <Image
+                            src="/icon/p.png"
+                            alt="Pポイント"
+                            width={12}
+                            height={12}
+                            className="inline absolute left-1 top-0"
+                          />
+                          70
+                        </span>
+                      </span>
+                    </label>
+                  </p>
+                  <p className="w-1/3">
+                    <label className="relative block mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-green-400 to-lime-400">
+                      <input type="checkbox" className="hidden" />
+                      <span className="block py-2 text-white">
+                        {"カスタム３"}
+                      </span>
+                      <span className="block leading-none">
+                        <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                          <Image
+                            src="/icon/p.png"
+                            alt="Pポイント"
+                            width={12}
+                            height={12}
+                            className="inline absolute left-1 top-0"
+                          />
+                          100
+                        </span>
+                      </span>
+                    </label>
+                  </p>
+                </div>
+                <div className="flex px-2">
+                  <span className="block flex-1 mr-2 h-[.6rem] border-b border-gray-400"></span>
+                  <button className="block rounded-full shadow-xs border border-gray-200 px-2 text-[.6rem]">
+                    リセット
+                  </button>
+                </div>
+                <p className="text-center px-3 text-sm">
+                  <span className="inline-block w-2/5 text-center">
+                    <Image
+                      src="/icon/p.png"
+                      alt="Pポイント"
+                      width={20}
+                      height={20}
+                      className="inline"
+                    />&nbsp;
+                    必要Pポイント
+                  </span>
+                  <span className="inline-block w-1/5 text-center">{"-"}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* 右カラム カードリスト */}
+        <div className="flex-1">
+          <div className="flex flex-wrap">
+            { skillCards.map( skillCard => { return (
+              <a key={skillCard.ID}
+                className="block w-15 p-2"
+              >
+                <Image
+                  src={`/skillcard/${skillCard.ID}_default.png`}
+                  alt={skillCard.name}
+                  width={50}
+                  height={50}
+                />
+              </a>
+            ); }) }
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="w-full">
       </footer>
     </div>
+
   );
 }

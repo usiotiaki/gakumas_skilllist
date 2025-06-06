@@ -1,0 +1,18 @@
+◆◆◆◆◆ skillist.csv ◆◆◆◆◆
+
+ID             -- ID
+sort           -- デフォルトの並び順
+name           -- スキルカード名
+rarity         -- レアリティ(N,R,SR,SSR)
+plan           -- プラン(S:センス,L:ロジック,A:アノマリー,F:共通)
+type           -- タイプ(A:アクティブ,M:メンタル,T:トラブル)
+detail_default -- 未強化時のカード効果説明
+detail_evolve  -- 強化後のカード効果説明
+plv            -- 開放Plv
+cost_type      -- コストタイプ(energy:体力,no_fine:元気不可,conce:集中,condi:好調,imp:好印象,motiv:やる気,fp:全力値)
+cost           -- コスト消費数(数値)
+no_duplicate   -- 重複(空:重複可,1:重複不可,2:重複不可、カスタムで重複可)
+once           -- レッスン中1回(空:制限なし,1:制限あり,2:制限あり、カスタムで制限なし)
+price          -- 相談で購入時の定価
+custom_limit   -- カスタム可能回数
+ef-XXX         -- 効果フラグ(空:対象効果なし,1:未強化時にあり,2:強化で追加,3:カスタムで追加可能 ※各フラグ名はskill_effect.csv参照)

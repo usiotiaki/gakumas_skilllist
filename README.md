@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TS + NEXTで学マススキルカード辞典作成
 
-## Getting Started
+## やりたいこと
+学マスのスキルカード辞典を作る
 
-First, run the development server:
+## 目的
+🌟設計および実装のリハビリ
+🌟TypeScript、Nextの学習
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 要件
+・学マスのプロデュース(育成)中に獲得できるスキルカード選定に役立つツールがほしい
+  ・ゲーム内のP図鑑がほぼ理想形であるが、プロデュース中に検索できないためブラウザで使用できるものを作成する
+ P図鑑を使用していて感じる課題
+  ・フィルタ(検索)の位置がわかりにくい
+  ・スキル効果はor検索のみのため、絞り込みに不向き
+  ・スキルカードのカスタム(追加強化)込の効果は検索できない
+  ・カスタムに必要なポイント数などを計算したい

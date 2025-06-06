@@ -1,0 +1,182 @@
+[
+  {
+    "efID": 1,
+    "efName": "パラメータ",
+    "efCode": "param"
+  },
+  {
+    "efID": 2,
+    "efName": "元気",
+    "efCode": "fine"
+  },
+  {
+    "efID": 3,
+    "efName": "持続効果",
+    "efCode": "duration"
+  },
+  {
+    "efID": 4,
+    "efName": "発動予約",
+    "efCode": "reserve"
+  },
+  {
+    "efID": 5,
+    "efName": "消費体力減少",
+    "efCode": "half_energy"
+  },
+  {
+    "efID": 6,
+    "efName": "消費体力削減",
+    "efCode": "minus_energy"
+  },
+  {
+    "efID": 7,
+    "efName": "レッスン中強化",
+    "efCode": "evolve"
+  },
+  {
+    "efID": 8,
+    "efName": "スキルカードを引く",
+    "efCode": "draw"
+  },
+  {
+    "efID": 9,
+    "efName": "手札を入れ替える",
+    "efCode": "shuffle"
+  },
+  {
+    "efID": 10,
+    "efName": "スキルカード使用数追加",
+    "efCode": "add_use"
+  },
+  {
+    "efID": 11,
+    "efName": "スキルカード追加発動",
+    "efCode": "add_active"
+  },
+  {
+    "efID": 12,
+    "efName": "ターン追加",
+    "efCode": "add_turn"
+  },
+  {
+    "efID": 13,
+    "efName": "パラメータ上昇量増加",
+    "efCode": "add_param"
+  },
+  {
+    "efID": 14,
+    "efName": "低下状態無効",
+    "efCode": "invalid"
+  },
+  {
+    "efID": 15,
+    "efName": "消費体力増加",
+    "efCode": "add_energy"
+  },
+  {
+    "efID": 16,
+    "efName": "パラメータ上昇量減少",
+    "efCode": "sub_param"
+  },
+  {
+    "efID": 17,
+    "efName": "スランプ",
+    "efCode": "slump"
+  },
+  {
+    "efID": 18,
+    "efName": "元気増加無効",
+    "efCode": "no_add_fine"
+  },
+  {
+    "efID": 19,
+    "efName": "好調",
+    "efCode": "condi"
+  },
+  {
+    "efID": 20,
+    "efName": "絶好調",
+    "efCode": "best_condi"
+  },
+  {
+    "efID": 21,
+    "efName": "集中",
+    "efCode": "conce"
+  },
+  {
+    "efID": 22,
+    "efName": "好調減少",
+    "efCode": "minus_condi"
+  },
+  {
+    "efID": 23,
+    "efName": "集中減少",
+    "efCode": "minus_conce"
+  },
+  {
+    "efID": 24,
+    "efName": "好印象",
+    "efCode": "imp"
+  },
+  {
+    "efID": 25,
+    "efName": "やる気",
+    "efCode": "motiv"
+  },
+  {
+    "efID": 26,
+    "efName": "好印象減少",
+    "efCode": "minus_imp"
+  },
+  {
+    "efID": 27,
+    "efName": "やる気減少",
+    "efCode": "minus_motiv"
+  },
+  {
+    "efID": 28,
+    "efName": "温存",
+    "efCode": "serv"
+  },
+  {
+    "efID": 29,
+    "efName": "強気",
+    "efCode": "strong"
+  },
+  {
+    "efID": 30,
+    "efName": "全力",
+    "efCode": "fullpower"
+  },
+  {
+    "efID": 31,
+    "efName": "成長",
+    "efCode": "growth"
+  },
+  {
+    "efID": 32,
+    "efName": "全力値減少",
+    "efCode": "minus_fullpower"
+  },
+  {
+    "efID": 33,
+    "efName": "指針解除",
+    "efCode": "off_compass"
+  },
+  {
+    "efID": 34,
+    "efName": "指針固定",
+    "efCode": "fix_compass"
+  },
+  {
+    "efID": 35,
+    "efName": "体力回復",
+    "efCode": "heal_energy"
+  },
+  {
+    "efID": 36,
+    "efName": "体力減少",
+    "efCode": "decrease_energy"
+  }
+]
