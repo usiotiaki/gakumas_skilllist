@@ -15,7 +15,7 @@ export default function Home() {
       </header>
       <main className="w-full">
         <div className="w-full p-2">
-          <h2>検索</h2>
+          <h2>フィルタ</h2>
           <form action="">
             <div className="border-b">
               <h3>テキスト検索</h3>
@@ -45,14 +45,23 @@ export default function Home() {
               <label><input name="once" type="checkbox" value="0" /> 制限なし</label>
             </div>
             <div className="border-b">
-              <h3>効果</h3>
+              <h3>効果検索</h3>
+              {/* 効果リスト */}
               { skillEffects.map( effect => { return (
                 <label key={effect.efID}>
                   <input name="effect" type="checkbox" value={effect.efCode} />
                   {effect.efName}
                 </label>
               ); }) }
+              {/* OR検索 or AND検索 */}
+              <label className="inline-flex items-center mb-5 cursor-pointer">
+                <span className="mr-1 text-sm font-medium text-gray-900 dark:text-gray-300">OR検索</span>
+                <input type="checkbox" name="search_method" value="and" className="sr-only peer" />
+                <div className="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-gray-200 dark:peer-checked:bg-gray-200"></div>
+                <span className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">AND検索</span>
+              </label>
             </div>
+            <button type="button">フィルタをリセット</button>
           </form>
         </div>
         <div className="w-full flex">
