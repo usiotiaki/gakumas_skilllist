@@ -72,110 +72,115 @@
   {
     "efID": 15,
     "efName": "消費体力増加",
-    "efCode": "add_energy"
+    "efCode": "up_energy"
   },
   {
     "efID": 16,
+    "efName": "消費体力追加",
+    "efCode": "add_energy"
+  },
+  {
+    "efID": 17,
     "efName": "パラメータ上昇量減少",
     "efCode": "sub_param"
   },
   {
-    "efID": 17,
+    "efID": 18,
     "efName": "スランプ",
     "efCode": "slump"
   },
   {
-    "efID": 18,
+    "efID": 19,
     "efName": "元気増加無効",
     "efCode": "no_add_fine"
   },
   {
-    "efID": 19,
+    "efID": 20,
     "efName": "好調",
     "efCode": "condi"
   },
   {
-    "efID": 20,
+    "efID": 21,
     "efName": "絶好調",
     "efCode": "best_condi"
   },
   {
-    "efID": 21,
+    "efID": 22,
     "efName": "集中",
     "efCode": "conce"
   },
   {
-    "efID": 22,
+    "efID": 23,
     "efName": "好調減少",
     "efCode": "minus_condi"
   },
   {
-    "efID": 23,
+    "efID": 24,
     "efName": "集中減少",
     "efCode": "minus_conce"
   },
   {
-    "efID": 24,
+    "efID": 25,
     "efName": "好印象",
     "efCode": "imp"
   },
   {
-    "efID": 25,
+    "efID": 26,
     "efName": "やる気",
     "efCode": "motiv"
   },
   {
-    "efID": 26,
+    "efID": 27,
     "efName": "好印象減少",
     "efCode": "minus_imp"
   },
   {
-    "efID": 27,
+    "efID": 28,
     "efName": "やる気減少",
     "efCode": "minus_motiv"
   },
   {
-    "efID": 28,
+    "efID": 29,
     "efName": "温存",
     "efCode": "serv"
   },
   {
-    "efID": 29,
+    "efID": 30,
     "efName": "強気",
     "efCode": "strong"
   },
   {
-    "efID": 30,
+    "efID": 31,
     "efName": "全力",
     "efCode": "fullpower"
   },
   {
-    "efID": 31,
+    "efID": 32,
     "efName": "成長",
     "efCode": "growth"
   },
   {
-    "efID": 32,
+    "efID": 33,
     "efName": "全力値減少",
     "efCode": "minus_fullpower"
   },
   {
-    "efID": 33,
+    "efID": 34,
     "efName": "指針解除",
     "efCode": "off_compass"
   },
   {
-    "efID": 34,
+    "efID": 35,
     "efName": "指針固定",
     "efCode": "fix_compass"
   },
   {
-    "efID": 35,
+    "efID": 36,
     "efName": "体力回復",
     "efCode": "heal_energy"
   },
   {
-    "efID": 36,
+    "efID": 37,
     "efName": "体力減少",
     "efCode": "decrease_energy"
   }
