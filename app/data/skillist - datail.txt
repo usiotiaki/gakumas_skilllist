@@ -3,7 +3,7 @@
 ID             -- ID
 sort           -- デフォルトの並び順
 name           -- スキルカード名
-rarity         -- レアリティ(N,R,SR,SSR)
+rarity         -- レアリティ(N,R,SR,SSR,unique:固有,support:サポートカード)
 plan           -- プラン(S:センス,L:ロジック,A:アノマリー,F:共通)
 type           -- タイプ(A:アクティブ,M:メンタル,T:トラブル)
 detail_default -- 未強化時のカード効果説明

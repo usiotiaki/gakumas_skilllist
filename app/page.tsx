@@ -31,6 +31,16 @@ export default function Home() {
                 <label className="checklabel"><input name="plan" type="checkbox" value="L" /><span>ロジック</span></label>
                 <label className="checklabel"><input name="plan" type="checkbox" value="A" /><span>アノマリー</span></label>
               </div>
+              {/* レアリティ */}
+              <div className="border-b py-2">
+                <h3 className="text-sm text-gray-500 font-semibold">レアリティ</h3>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="N" /><span>N</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="R" /><span>R</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="SR" /><span>SR</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="SSR" /><span>SSR</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="unique" /><span>固有</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="support" /><span>サポートカード</span></label>
+              </div>
               {/* スキルカードタイプ */}
               <div className="border-b py-2">
                 <h3 className="text-sm text-gray-500 font-semibold">スキルカードタイプ</h3>
