@@ -15,54 +15,71 @@ export default function Home() {
       </header>
       <main className="w-full">
         <div className="w-full p-2">
-          <h2>フィルタ</h2>
-          <form action="">
-            <div className="border-b">
-              <h3>テキスト検索</h3>
-              <input name="text" type="text" placeholder="テキスト入力" />
-            </div>
-            <div className="border-b">
-              <h3>プラン</h3>
-              <label><input name="plan" type="radio" value="F" /> 共通</label>
-              <label><input name="plan" type="radio" value="S" /> センス</label>
-              <label><input name="plan" type="radio" value="L" /> ロジック</label>
-              <label><input name="plan" type="radio" value="A" /> アノマリー</label>
-            </div>
-            <div className="border-b">
-              <h3>スキルカードタイプ</h3>
-              <label><input name="type" type="checkbox" value="A" /> アクティブ</label>
-              <label><input name="type" type="checkbox" value="M" /> メンタル</label>
-              <label><input name="type" type="checkbox" value="T" /> トラブル</label>
-            </div>
-            <div className="border-b">
-              <h3>重複</h3>
-              <label><input name="no_duplicate" type="checkbox" value="1" /> 可</label>
-              <label><input name="no_duplicate" type="checkbox" value="0" /> 不可</label>
-            </div>
-            <div className="border-b">
-              <h3>レッスン中使用回数</h3>
-              <label><input name="once" type="checkbox" value="1" /> 1回</label>
-              <label><input name="once" type="checkbox" value="0" /> 制限なし</label>
-            </div>
-            <div className="border-b">
-              <h3>効果検索</h3>
-              {/* 効果リスト */}
-              { skillEffects.map( effect => { return (
-                <label key={effect.efID}>
-                  <input name="effect" type="checkbox" value={effect.efCode} />
-                  {effect.efName}
-                </label>
-              ); }) }
-              {/* OR検索 or AND検索 */}
-              <label className="inline-flex items-center mb-5 cursor-pointer">
-                <span className="mr-1 text-sm font-medium text-gray-900 dark:text-gray-300">OR検索</span>
-                <input type="checkbox" name="search_method" value="and" className="sr-only peer" />
-                <div className="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-gray-200 dark:peer-checked:bg-gray-200"></div>
-                <span className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">AND検索</span>
-              </label>
-            </div>
-            <button type="button">フィルタをリセット</button>
-          </form>
+          <div className="w-full p-2 border border-gray-200 rounded-lg shadow-md">
+            <h2>フィルタ</h2>
+            <form action="" id="filter">
+              {/* テキスト検索 */}
+              <div className="border-b py-2">
+                <h3 className="text-sm text-gray-500 font-semibold">テキスト検索</h3>
+                <input name="text" type="text" placeholder="テキスト入力" className="w-[180px] border rounded-tr-md rounded-bl-md p-1 text-xs"/>
+              </div>
+              {/* プラン */}
+              <div className="border-b py-2">
+                <h3 className="text-sm text-gray-500 font-semibold">プラン</h3>
+                <label className="checklabel"><input name="plan" type="checkbox" value="F" /><span>共通</span></label>
+                <label className="checklabel"><input name="plan" type="checkbox" value="S" /><span>センス</span></label>
+                <label className="checklabel"><input name="plan" type="checkbox" value="L" /><span>ロジック</span></label>
+                <label className="checklabel"><input name="plan" type="checkbox" value="A" /><span>アノマリー</span></label>
+              </div>
+              {/* スキルカードタイプ */}
+              <div className="border-b py-2">
+                <h3 className="text-sm text-gray-500 font-semibold">スキルカードタイプ</h3>
+                <label className="checklabel"><input name="type" type="checkbox" value="A" /><span>アクティブ</span></label>
+                <label className="checklabel"><input name="type" type="checkbox" value="M" /><span>メンタル</span></label>
+                <label className="checklabel"><input name="type" type="checkbox" value="T" /><span>トラブル</span></label>
+              </div>
+              {/* 重複 */}
+              <div className="border-b py-2">
+                <h3 className="text-sm text-gray-500 font-semibold">重複</h3>
+                <label className="checklabel"><input name="no_duplicate" type="checkbox" value="1" /><span>可</span></label>
+                <label className="checklabel"><input name="no_duplicate" type="checkbox" value="0" /><span>不可</span></label>
+              </div>
+              {/* レッスン中使用回数 */}
+              <div className="border-b py-2">
+                <h3 className="text-sm text-gray-500 font-semibold">レッスン中使用回数</h3>
+                <label className="checklabel"><input name="once" type="checkbox" value="1" /><span>1回</span></label>
+                <label className="checklabel"><input name="once" type="checkbox" value="0" /><span>制限なし</span></label>
+              </div>
+              {/* 効果検索 */}
+              <div className="border-b py-2">
+                <h3 className="text-sm text-gray-500 font-semibold">効果検索</h3>
+                {/* 効果リスト */}
+                { skillEffects.map( effect => { return (
+                  <label key={effect.efID} className="checklabel">
+                    <input name="effect" type="checkbox" value={effect.efCode} />
+                    <span>{effect.efName}</span>
+                  </label>
+                ); }) }
+              </div>
+              {/* 検索オプション */}
+              <div className="py-2">
+                <h3 className="text-sm text-gray-500 font-semibold">検索オプション</h3>
+                {/* カスタム効果を反映 */}
+                <label className="checklabel"><input name="custom_effect" type="checkbox" value="1" defaultChecked /><span>カスタムの追加効果を含む</span></label>
+                {/* OR検索 or AND検索 */}
+                <div>
+                  <span className="text-xs">効果の検索方法</span>&nbsp;
+                  <label className="inline-flex items-center cursor-pointer">
+                    <span className="mr-1 text-xs font-medium text-gray-900 dark:text-gray-300">OR</span>
+                    <input type="checkbox" name="search_method" value="and" className="sr-only peer" />
+                    <div className="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-gray-200 dark:peer-checked:bg-gray-200"></div>
+                    <span className="ml-1 text-xs font-medium text-gray-900 dark:text-gray-300">AND</span>
+                  </label>
+                </div>
+              </div>
+              <button type="button" className="border border-gray-200 py-1 px-2 rounded-full shadow-sm text-xs">フィルタをリセット</button>
+            </form>
+          </div>
         </div>
         <div className="w-full flex">
           {/* 左カラム カード詳細 */}
@@ -87,13 +104,13 @@ export default function Home() {
                       <div className="mb-1 w-full border-b flex justify-between">
                         <h3 className="text-sm font-semibold">{skillCards[0].name}{evolve?"+":""}</h3>
                         <p className="text-xs">
-                          <label className="block">
+                          <label className="checklabel block">
                             <input
                               type="checkbox"
                               checked={evolve}
                               onChange={(e) => setChecked(e.target.checked)}
                             />
-                            強化
+                            <span>強化</span>
                           </label>
                         </p>
                       </div>
