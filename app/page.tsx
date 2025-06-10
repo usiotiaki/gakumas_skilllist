@@ -7,6 +7,7 @@ import skillEffects from "./data/skill_effect.json";
 
 export default function Home() {
   const [evolve, setChecked] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="w-full">
@@ -14,10 +15,18 @@ export default function Home() {
         <h1>【学マス】スキルカード図鑑【非公式】</h1>
       </header>
       <main className="w-full">
-        <div className="w-full p-2">
-          <div className="w-full p-2 border border-gray-200 rounded-lg shadow-md">
-            <h2>フィルタ</h2>
-            <form action="" id="filter">
+        <div className="w-full pt-2 px-2">
+          <div className="relative w-full pt-2">
+            <h2 className="px-2 rounded-full bg-linear-to-r from-amber-500 to-white text-white">フィルタ</h2>
+            <button
+              onClick={() => setOpen(!open)}
+              className="absolute top-2 right-2 border border-gray-200 py-1 px-2 rounded-full bg-white shadow-sm text-xs"
+            >
+              {open ? '閉じる' : '開く'}
+            </button>
+            <form action="" id="filter"
+              className={`relative my-2 border border-gray-200 rounded-lg px-2 bg-white shadow-md overflow-scroll transition-all duration-300 ${open ? 'max-h-[1000] opacity-100' : 'max-h-0 opacity-0'}
+            `}>
               {/* テキスト検索 */}
               <div className="border-b py-2">
                 <h3 className="text-sm text-gray-500 font-semibold">テキスト検索</h3>
@@ -34,10 +43,10 @@ export default function Home() {
               {/* レアリティ */}
               <div className="border-b py-2">
                 <h3 className="text-sm text-gray-500 font-semibold">レアリティ</h3>
-                <label className="checklabel"><input name="rarity" type="checkbox" value="N" /><span>N</span></label>
-                <label className="checklabel"><input name="rarity" type="checkbox" value="R" /><span>R</span></label>
-                <label className="checklabel"><input name="rarity" type="checkbox" value="SR" /><span>SR</span></label>
-                <label className="checklabel"><input name="rarity" type="checkbox" value="SSR" /><span>SSR</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="N" /><span>N(基本系)</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="R" /><span>R(青枠)</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="SR" /><span>SR(金枠)</span></label>
+                <label className="checklabel"><input name="rarity" type="checkbox" value="SSR" /><span>SSR(虹枠)</span></label>
                 <label className="checklabel"><input name="rarity" type="checkbox" value="unique" /><span>固有</span></label>
                 <label className="checklabel"><input name="rarity" type="checkbox" value="support" /><span>サポートカード</span></label>
               </div>
@@ -87,7 +96,7 @@ export default function Home() {
                   </label>
                 </div>
               </div>
-              <button type="button" className="border border-gray-200 py-1 px-2 rounded-full shadow-sm text-xs">フィルタをリセット</button>
+              <button type="button" className="sticky bottom-0 right-0 bg-white border border-gray-200 py-1 px-2 rounded-full shadow-sm text-xs btn-reset">フィルタをリセット</button>
             </form>
           </div>
         </div>

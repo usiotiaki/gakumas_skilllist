@@ -95,3 +95,9 @@ body {
 #filter .checklabel input:checked + span {
   background-color: var(--color-amber-100);
 }
+
+/* フィルタをリセット ボタン */
+.btn-reset {
+  margin-left: calc( 100% - ( var(--spacing) * 6 + 9em + 2px ) );
+  transform: translateY(-1em);
+}
