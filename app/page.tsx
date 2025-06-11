@@ -153,103 +153,113 @@ export default function Home() {
                   </p>
                   <div className="flex space-x-2 text-xs text-center">
                     <p className="w-1/3">
-                      <label className="relative block mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                      <label className="relative block mb-2">
                         <input type="checkbox" className="hidden" />
-                        <span className="block py-2 text-white">
-                          {"カスタム１-１"}
-                        </span>
-                        <span className="block leading-none">
-                          <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                            <Image
-                              src="/icon/p.png"
-                              alt="Pポイント"
-                              width={12}
-                              height={12}
-                              className="inline absolute left-1 top-0"
-                            />
-                            40
+                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                          <span className="block py-2 text-white">
+                            {"カスタム１-１"}
+                          </span>
+                          <span className="block leading-none">
+                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                              <Image
+                                src="/icon/p.png"
+                                alt="Pポイント"
+                                width={12}
+                                height={12}
+                                className="inline absolute left-1 top-0"
+                              />
+                              40
+                            </span>
                           </span>
                         </span>
                       </label>
-                      <label className="relative block mt-4 mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                      <label className="relative block mb-2">
                         <span className="absolute left-[50%] -translate-x-1/2 -translate-y-full text-gray-400">
                           ↓
                         </span>
                         <input type="checkbox" className="hidden" />
-                        <span className="block py-2 text-white">
-                          {"カスタム１-２"}
-                        </span>
-                        <span className="block leading-none">
-                          <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                            <Image
-                              src="/icon/p.png"
-                              alt="Pポイント"
-                              width={12}
-                              height={12}
-                              className="inline absolute left-1 top-0"
-                            />
-                            70
+                        <span className="relative block mt-4 border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                          <span className="block py-2 text-white">
+                            {"カスタム１-２"}
+                          </span>
+                          <span className="block leading-none">
+                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                              <Image
+                                src="/icon/p.png"
+                                alt="Pポイント"
+                                width={12}
+                                height={12}
+                                className="inline absolute left-1 top-0"
+                              />
+                              70
+                            </span>
                           </span>
                         </span>
                       </label>
                     </p>
                     <p className="w-1/3">
-                      <label className="relative block mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-purple-500 to-fuchsia-400">
+                      <label className="relative block mb-2">
                         <input type="checkbox" className="hidden" />
-                        <span className="block py-2 text-white">
-                          {"カスタム２-１"}
-                        </span>
-                        <span className="block leading-none">
-                          <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                            <Image
-                              src="/icon/p.png"
-                              alt="Pポイント"
-                              width={12}
-                              height={12}
-                              className="inline absolute left-1 top-0"
-                            />
-                            70
+                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-purple-500 to-fuchsia-400">
+                          <span className="block py-2 text-white">
+                            {"カスタム２-１"}
+                          </span>
+                          <span className="block leading-none">
+                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                              <Image
+                                src="/icon/p.png"
+                                alt="Pポイント"
+                                width={12}
+                                height={12}
+                                className="inline absolute left-1 top-0"
+                              />
+                              70
+                            </span>
                           </span>
                         </span>
                       </label>
-                      <label className="relative block mt-4 mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-sky-500 to-cyan-300">
+                      <label className="relative block mb-2">
                         <span className="absolute left-[50%] -translate-x-1/2 -translate-y-full text-gray-400">
                           ↓
                         </span>
                         <input type="checkbox" className="hidden" />
-                        <span className="block py-2 text-white">
-                          {"カスタム２-２"}
-                        </span>
-                        <span className="block leading-none">
-                          <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                            <Image
-                              src="/icon/p.png"
-                              alt="Pポイント"
-                              width={12}
-                              height={12}
-                              className="inline absolute left-1 top-0"
-                            />
-                            70
+                        <span className="relative block mt-4 border-3 border-white rounded-md shadow-md bg-linear-to-r from-sky-500 to-cyan-300">
+                          <span className="block py-2 text-white">
+                            {"カスタム２-２"}
+                          </span>
+                          <span className="block leading-none">
+                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                              <Image
+                                src="/icon/p.png"
+                                alt="Pポイント"
+                                width={12}
+                                height={12}
+                                className="inline absolute left-1 top-0"
+                              />
+                              70
+                            </span>
                           </span>
                         </span>
                       </label>
                     </p>
                     <p className="w-1/3">
-                      <label className="relative block mb-2 border-3 border-white rounded-md shadow-md bg-linear-to-r from-green-400 to-lime-400">
+                      <label className="relative block mb-2">
                         <input type="checkbox" className="hidden" />
-                        <span className="block py-2 text-white">
-                          {"カスタム３"}
-                        </span>
-                        <span className="block leading-none">
-                          <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                            <Image
-                              src="/icon/p.png"
-                              alt="Pポイント"
-                              width={12}
-                              height={12}
-                              className="inline absolute left-1 top-0"
-                            />
-                            100
+                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-green-400 to-lime-400">
+                          <span className="block py-2 text-white">
+                            {"カスタム３"}
+                          </span>
+                          <span className="block leading-none">
+                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                              <Image
+                                src="/icon/p.png"
+                                alt="Pポイント"
+                                width={12}
+                                height={12}
+                                className="inline absolute left-1 top-0"
+                              />
+                              100
+                            </span>
                           </span>
                         </span>
                       </label>
