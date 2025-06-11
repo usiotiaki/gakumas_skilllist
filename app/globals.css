@@ -101,3 +101,72 @@ body {
   margin-left: calc( 100% - ( var(--spacing) * 6 + 9em + 2px ) );
   transform: translateY(-1em);
 }
+
+/* スキルカード一覧(枠) */
+.skill_icon{
+  position: relative;
+  transition: .2s;
+}
+
+.skill_icon .frame{
+  display: none;
+  position: absolute;
+  z-index: -500;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border: 2px solid var(--color-amber-500);
+  border-radius: .3rem;
+  animation: 1s ease 0s infinite zoom;
+}
+
+.skill_icon .frame:before,
+.skill_icon .frame:after{
+  content: "";
+  display: block;
+  background-color: white;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  position: absolute;
+  top: -3px;
+  left: -3px;
+}
+
+.skill_icon .frame:before{
+  width: 50%;
+  left: 25%;
+}
+.skill_icon .frame:after{
+  height: 50%;
+  top: 25%;
+}
+
+@keyframes zoom {
+  0%{
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+  }
+  50%{
+    top: 8%;
+    left: 8%;
+    width: 84%;
+    height: 84%;
+  }
+  100%{
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+  }
+}
+
+.skill_icon:hover{
+  transform: scale(.95);
+}
+
+.skill_icon.active .frame{
+  display: block;
+}

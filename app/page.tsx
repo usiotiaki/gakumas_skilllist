@@ -8,6 +8,7 @@ import skillEffects from "./data/skill_effect.json";
 export default function Home() {
   const [evolve, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <div className="w-full">
@@ -282,8 +283,10 @@ export default function Home() {
             <div className="flex flex-wrap">
               { skillCards.map( skillCard => { return (
                 <a key={skillCard.ID}
-                  className="block w-15 p-2"
+                  onClick={() => setActiveIndex(skillCard.ID)}
+                  className={`${activeIndex === skillCard.ID ? 'active ' : ''}skill_icon block w-15 p-2`}
                 >
+                  <div className="frame"></div>
                   <Image
                     src={`/skillcard/${skillCard.ID}_default.png`}
                     alt={skillCard.name}
