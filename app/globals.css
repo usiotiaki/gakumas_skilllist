@@ -43,11 +43,6 @@ body {
 .checklabel input + span {
   display: inline-block;
   padding-left: 1.75em;
-  margin-right: calc(var(--spacing) * 1);
-  margin-bottom: calc(var(--spacing) * 1);
-  font-size: var(--text-xs);
-  border-top-right-radius: var(--radius-md);
-  border-bottom-left-radius: var(--radius-md);
   position: relative;
 }
 
@@ -88,10 +83,15 @@ body {
 
 /* フィルタ用 チェックボックス */
 #filter .checklabel input + span {
+  margin-right: calc(var(--spacing) * 1);
+  margin-bottom: calc(var(--spacing) * 1);
   width: 180px;
+  border-top-right-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
   padding: calc(var(--spacing) * 1);
   padding-left: 2em;
   background-color: var(--color-gray-100);
+  font-size: var(--text-xs);
 }
 #filter .checklabel input + span:before {
   top: 0.5em;
@@ -111,7 +111,7 @@ body {
   transform: translateY(-1em);
   transition: .15s;
 }
-.btn-reset.act_h:hover {
+.btn-reset:hover {
   transform: scale(.92) translateY(-1em) ;
 }
 

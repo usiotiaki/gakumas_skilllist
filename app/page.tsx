@@ -129,7 +129,7 @@ export default function Home() {
                               checked={evolve}
                               onChange={(e) => setChecked(e.target.checked)}
                             />
-                            <span>強化</span>
+                            <span className="act_h block rounded-full shadow-xs border border-gray-200 bg-white px-2 text-xs">強化</span>
                           </label>
                         </p>
                       </div>
