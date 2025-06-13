@@ -26,6 +26,15 @@ body {
   font-weight: 500;
 }
 
+/* 汎用ホバーアクション */
+.act_h{
+  transition: .15s;
+}
+
+.act_h:hover{
+  transform: scale(.92);
+}
+
 /* 汎用チェックボックス */
 .checklabel input{
   display: none;
@@ -100,12 +109,15 @@ body {
 .btn-reset {
   margin-left: calc( 100% - ( var(--spacing) * 6 + 9em + 2px ) );
   transform: translateY(-1em);
+  transition: .15s;
+}
+.btn-reset.act_h:hover {
+  transform: scale(.92) translateY(-1em) ;
 }
 
-/* スキルカード一覧(枠) */
+/* スキルカード一覧(選択時の枠) */
 .skill_icon{
   position: relative;
-  transition: .2s;
 }
 
 .skill_icon .frame{
@@ -163,10 +175,48 @@ body {
   }
 }
 
-.skill_icon:hover{
-  transform: scale(.95);
-}
-
 .skill_icon.active .frame{
   display: block;
 }
+
+/* カスタム　選択時 */
+.custom_btn input:checked + span{
+  opacity: .75;
+}
+
+.custom_btn input ~ div{
+  filter: 
+    drop-shadow(-1px 0 0px white) 
+    drop-shadow(1px 0 0px white) 
+    drop-shadow(0 -1px 0px white)
+    drop-shadow(0 1px 0px white)
+    ;
+  position: absolute;
+  bottom: .4em;
+  right: .8em;
+  display: none;
+}
+
+.custom_btn input ~ div.check:before,
+.custom_btn input ~ div.check:after{
+  content:"";
+  display: block;
+  height: .25em;
+  background: var(--color-sky-400);
+  border-radius: .4em;
+}
+
+.custom_btn input ~ div.check:before{
+  width: 1em;
+  transform: rotate(45deg);
+}
+
+.custom_btn input ~ div.check:after{
+  width: 1.6em;
+  transform: translate(6px, -6px) rotate(-45deg);
+}
+
+.custom_btn input:checked ~ div{
+  display: block;
+}
+

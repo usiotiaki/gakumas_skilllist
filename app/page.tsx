@@ -21,13 +21,12 @@ export default function Home() {
             <h2 className="px-2 rounded-full bg-linear-to-r from-amber-500 to-white text-white">フィルタ</h2>
             <button
               onClick={() => setOpen(!open)}
-              className="absolute top-2 right-2 border border-gray-200 py-1 px-2 rounded-full bg-white shadow-sm text-xs"
+              className="act_h absolute top-2 right-2 border border-gray-200 py-1 px-2 rounded-full bg-white shadow-sm text-xs"
             >
               {open ? '閉じる' : '開く'}
             </button>
             <form action="" id="filter"
-              className={`relative my-2 border border-gray-200 rounded-lg px-2 bg-white shadow-md overflow-scroll transition-all duration-300 ${open ? 'max-h-[1000] opacity-100' : 'max-h-0 opacity-0'}
-            `}>
+              className={`relative my-2 border border-gray-200 rounded-lg px-2 bg-white shadow-md overflow-scroll transition-all duration-300 ${open ? 'max-h-[1000] opacity-100' : 'max-h-0 opacity-0'}`}>
               {/* テキスト検索 */}
               <div className="border-b py-2">
                 <h3 className="text-sm text-gray-500 font-semibold">テキスト検索</h3>
@@ -97,7 +96,7 @@ export default function Home() {
                   </label>
                 </div>
               </div>
-              <button type="button" className="sticky bottom-0 right-0 bg-white border border-gray-200 py-1 px-2 rounded-full shadow-sm text-xs btn-reset">フィルタをリセット</button>
+              <button type="button" className="btn-reset sticky bottom-0 right-0 bg-white border border-gray-200 py-1 px-2 rounded-full shadow-sm text-xs">フィルタをリセット</button>
             </form>
           </div>
         </div>
@@ -106,7 +105,7 @@ export default function Home() {
           <div className="w-96">
             <div className="flex flex-wrap">
               <div className="w-full p-2">
-                <div className="mb-2 w-full p-2 border border-gray-400 rounded-sm">
+                <div className="mb-2 w-full p-2 border border-gray-400 rounded-sm bg-white">
                   <div className="flex flex-wrap">
                     <p className="pr-2 text-xs">
                       <Image
@@ -153,7 +152,7 @@ export default function Home() {
                   </p>
                   <div className="flex space-x-2 text-xs text-center">
                     <p className="w-1/3">
-                      <label className="relative block mb-2">
+                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
                         <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
                           <span className="block py-2 text-white">
@@ -172,13 +171,14 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
+                        <div className="check"></div>
                       </label>
-                      <label className="relative block mb-2">
-                        <span className="absolute left-[50%] -translate-x-1/2 -translate-y-full text-gray-400">
-                          ↓
-                        </span>
+                      <span className="block text-center text-gray-400">
+                        ↓
+                      </span>
+                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
-                        <span className="relative block mt-4 border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
                           <span className="block py-2 text-white">
                             {"カスタム１-２"}
                           </span>
@@ -195,10 +195,11 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
+                        <div className="check"></div>
                       </label>
                     </p>
                     <p className="w-1/3">
-                      <label className="relative block mb-2">
+                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
                         <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-purple-500 to-fuchsia-400">
                           <span className="block py-2 text-white">
@@ -217,13 +218,14 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
+                        <div className="check"></div>
                       </label>
-                      <label className="relative block mb-2">
-                        <span className="absolute left-[50%] -translate-x-1/2 -translate-y-full text-gray-400">
-                          ↓
-                        </span>
+                      <span className="block text-center text-gray-400">
+                        ↓
+                      </span>
+                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
-                        <span className="relative block mt-4 border-3 border-white rounded-md shadow-md bg-linear-to-r from-sky-500 to-cyan-300">
+                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-sky-500 to-cyan-300">
                           <span className="block py-2 text-white">
                             {"カスタム２-２"}
                           </span>
@@ -240,10 +242,11 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
+                        <div className="check"></div>
                       </label>
                     </p>
                     <p className="w-1/3">
-                      <label className="relative block mb-2">
+                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
                         <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-green-400 to-lime-400">
                           <span className="block py-2 text-white">
@@ -262,12 +265,13 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
+                        <div className="check"></div>
                       </label>
                     </p>
                   </div>
                   <div className="flex px-2">
                     <span className="block flex-1 mr-2 h-[.6rem] border-b border-gray-400"></span>
-                    <button className="block rounded-full shadow-xs border border-gray-200 px-2 text-[.6rem]">
+                    <button className="act_h block rounded-full shadow-xs border border-gray-200 bg-white px-2 text-[.6rem]">
                       リセット
                     </button>
                   </div>
@@ -294,7 +298,7 @@ export default function Home() {
               { skillCards.map( skillCard => { return (
                 <a key={skillCard.ID}
                   onClick={() => setActiveIndex(skillCard.ID)}
-                  className={`${activeIndex === skillCard.ID ? 'active ' : ''}skill_icon block w-15 p-2`}
+                  className={`${activeIndex === skillCard.ID ? 'active ' : ''}skill_icon act_h block w-15 p-2`}
                 >
                   <div className="frame"></div>
                   <Image
