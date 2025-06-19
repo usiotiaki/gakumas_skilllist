@@ -17,6 +17,7 @@ export default function Home() {
       </header>
       <main className="w-full">
         <div className="w-full pt-2 px-2">
+          {/* フィルタ */}
           <div className="relative w-full pt-2">
             <h2 className="px-2 rounded-full bg-linear-to-r from-amber-500 to-white text-white">フィルタ</h2>
             <button
@@ -26,7 +27,7 @@ export default function Home() {
               {open ? '閉じる' : '開く'}
             </button>
             <form action="" id="filter"
-              className={`relative my-2 border border-gray-200 rounded-lg px-2 bg-white shadow-md overflow-scroll transition-all duration-300 ${open ? 'max-h-[1000] opacity-100' : 'max-h-0 opacity-0'}`}>
+              className={`relative my-2 border border-gray-200 rounded-lg px-2 bg-white shadow-md overflow-scroll transition-all duration-300 ${open ? 'open' : ''}`}>
               {/* テキスト検索 */}
               <div className="border-b py-2">
                 <h3 className="text-sm text-gray-500 font-semibold">テキスト検索</h3>
@@ -84,7 +85,7 @@ export default function Home() {
               <div className="py-2">
                 <h3 className="text-sm text-gray-500 font-semibold">検索オプション</h3>
                 {/* カスタム効果を反映 */}
-                <label className="checklabel"><input name="custom_effect" type="checkbox" value="1" defaultChecked /><span>カスタムの追加効果を含む</span></label>
+                <label className="checklabel"><input name="custom_effect" type="checkbox" value="1" defaultChecked /><span>カスタム後の効果を含む</span></label>
                 {/* OR検索 or AND検索 */}
                 <div>
                   <span className="text-xs">効果の検索方法</span>&nbsp;
@@ -100,10 +101,10 @@ export default function Home() {
             </form>
           </div>
         </div>
-        <div className="w-full flex">
+        <div id="skill_area" className="w-full flex flex-col md:flex-row">
           {/* 左カラム カード詳細 */}
-          <div className="w-96">
-            <div className="flex flex-wrap">
+          <div id="skill_detail" className="relative w-full md:w-96">
+            <div className="sticky top-0 left-0 flex flex-wrap">
               <div className="w-full p-2">
                 <div className="mb-2 w-full p-2 border border-gray-400 rounded-sm bg-white">
                   <div className="flex flex-wrap">
@@ -181,6 +182,30 @@ export default function Home() {
                         <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
                           <span className="block py-2 text-white">
                             {"カスタム１-２"}
+                          </span>
+                          <span className="block leading-none">
+                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                              <Image
+                                src="/icon/p.png"
+                                alt="Pポイント"
+                                width={12}
+                                height={12}
+                                className="inline absolute left-1 top-0"
+                              />
+                              70
+                            </span>
+                          </span>
+                        </span>
+                        <div className="check"></div>
+                      </label>
+                      <span className="block text-center text-gray-400">
+                        ↓
+                      </span>
+                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
+                        <input type="checkbox" className="hidden" />
+                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                          <span className="block py-2 text-white">
+                            {"カスタム１-３"}
                           </span>
                           <span className="block leading-none">
                             <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
@@ -293,7 +318,7 @@ export default function Home() {
             </div>
           </div>
           {/* 右カラム カードリスト */}
-          <div className="flex-1">
+          <div className="flex-1 overflow-y-auto">
             <div className="flex flex-wrap">
               { skillCards.map( skillCard => { return (
                 <a key={skillCard.ID}

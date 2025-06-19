@@ -31,8 +31,15 @@ body {
   transition: .15s;
 }
 
-.act_h:hover{
-  transform: scale(.92);
+@media (any-hover: hover) {
+  .act_h:hover{
+    transform: scale(.92);
+  }
+}
+@media (any-hover: none) {
+  .act_h:active{
+    transform: scale(.92);
+  }
 }
 
 /* 汎用チェックボックス */
@@ -81,11 +88,28 @@ body {
   border-bottom-color: var(--color-white);
 }
 
+/* フィルタ */
+#filter {
+  opacity: 0;
+  max-height: 0;
+}
+
+#filter.open {
+  opacity: 100;
+  max-height: calc(100vh - 80px);
+}
+
+@media (min-width: 1024px) {
+  #filter.open {
+    max-height: 2000px;
+  }
+}
+
 /* フィルタ用 チェックボックス */
 #filter .checklabel input + span {
   margin-right: calc(var(--spacing) * 1);
   margin-bottom: calc(var(--spacing) * 1);
-  width: 180px;
+  width: 166px;
   border-top-right-radius: var(--radius-md);
   border-bottom-left-radius: var(--radius-md);
   padding: calc(var(--spacing) * 1);
@@ -111,8 +135,21 @@ body {
   transform: translateY(-1em);
   transition: .15s;
 }
-.btn-reset:hover {
-  transform: scale(.92) translateY(-1em) ;
+
+@media (any-hover: hover) {
+  .btn-reset:hover {
+    transform: scale(.92) translateY(-1em) ;
+  }
+}
+@media (any-hover: none) {
+  .btn-reset:active {
+    transform: scale(.92) translateY(-1em) ;
+  }
+}
+
+/* スキルカードエリア */
+#skill_area{
+  height: calc(100vh - 83px);
 }
 
 /* スキルカード一覧(選択時の枠) */
