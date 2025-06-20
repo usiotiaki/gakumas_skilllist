@@ -8,7 +8,6 @@ import skillEffects from "./data/skill_effect.json";
 export default function Home() {
   const [evolve, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <div className="w-full">
@@ -155,7 +154,7 @@ export default function Home() {
                     <p className="w-1/3">
                       <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
-                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
                           <span className="block py-2 text-white">
                             {"カスタム１-１"}
                           </span>
@@ -172,14 +171,14 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
-                        <div className="check"></div>
+                        <span className="check"></span>
                       </label>
                       <span className="block text-center text-gray-400">
                         ↓
                       </span>
                       <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
-                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
                           <span className="block py-2 text-white">
                             {"カスタム１-２"}
                           </span>
@@ -196,14 +195,14 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
-                        <div className="check"></div>
+                        <span className="check"></span>
                       </label>
                       <span className="block text-center text-gray-400">
                         ↓
                       </span>
                       <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
-                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
+                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
                           <span className="block py-2 text-white">
                             {"カスタム１-３"}
                           </span>
@@ -220,13 +219,13 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
-                        <div className="check"></div>
+                        <span className="check"></span>
                       </label>
                     </p>
                     <p className="w-1/3">
                       <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
-                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-purple-500 to-fuchsia-400">
+                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-purple-500 to-fuchsia-400">
                           <span className="block py-2 text-white">
                             {"カスタム２-１"}
                           </span>
@@ -243,14 +242,14 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
-                        <div className="check"></div>
+                        <span className="check"></span>
                       </label>
                       <span className="block text-center text-gray-400">
                         ↓
                       </span>
                       <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
-                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-sky-500 to-cyan-300">
+                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-sky-500 to-cyan-300">
                           <span className="block py-2 text-white">
                             {"カスタム２-２"}
                           </span>
@@ -267,13 +266,13 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
-                        <div className="check"></div>
+                        <span className="check"></span>
                       </label>
                     </p>
                     <p className="w-1/3">
                       <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
                         <input type="checkbox" className="hidden" />
-                        <span className="relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-green-400 to-lime-400">
+                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-green-400 to-lime-400">
                           <span className="block py-2 text-white">
                             {"カスタム３"}
                           </span>
@@ -290,7 +289,7 @@ export default function Home() {
                             </span>
                           </span>
                         </span>
-                        <div className="check"></div>
+                        <span className="check"></span>
                       </label>
                     </p>
                   </div>
@@ -321,18 +320,16 @@ export default function Home() {
           <div className="flex-1 overflow-y-auto">
             <div className="flex flex-wrap">
               { skillCards.map( skillCard => { return (
-                <a key={skillCard.ID}
-                  onClick={() => setActiveIndex(skillCard.ID)}
-                  className={`${activeIndex === skillCard.ID ? 'active ' : ''}skill_icon act_h block w-15 p-2`}
-                >
-                  <div className="frame"></div>
+                <label key={skillCard.ID} className="skill_icon act_h block w-15 p-2">
+                  <input type="radio" name="card" value={skillCard.ID} className="hidden"/>
+                  <span className="frame"></span>
                   <Image
                     src={`/skillcard/${skillCard.ID}_default.png`}
                     alt={skillCard.name}
                     width={50}
                     height={50}
                   />
-                </a>
+                </label>
               ); }) }
             </div>
           </div>

@@ -212,16 +212,16 @@ body {
   }
 }
 
-.skill_icon.active .frame{
+.skill_icon input:checked + .frame{
   display: block;
 }
 
 /* カスタム　選択時 */
-.custom_btn input:checked + span{
+.custom_btn input:checked + .custom_btn_span{
   opacity: .75;
 }
 
-.custom_btn input ~ div{
+.custom_btn input ~ .check{
   filter: 
     drop-shadow(-1px 0 0px white) 
     drop-shadow(1px 0 0px white) 
@@ -234,8 +234,8 @@ body {
   display: none;
 }
 
-.custom_btn input ~ div.check:before,
-.custom_btn input ~ div.check:after{
+.custom_btn input ~ .check:before,
+.custom_btn input ~ .check:after{
   content:"";
   display: block;
   height: .25em;
@@ -243,17 +243,16 @@ body {
   border-radius: .4em;
 }
 
-.custom_btn input ~ div.check:before{
+.custom_btn input ~ .check:before{
   width: 1em;
   transform: rotate(45deg);
 }
 
-.custom_btn input ~ div.check:after{
+.custom_btn input ~ .check:after{
   width: 1.6em;
   transform: translate(6px, -6px) rotate(-45deg);
 }
 
-.custom_btn input:checked ~ div{
+.custom_btn input:checked ~ .check{
   display: block;
 }
-
