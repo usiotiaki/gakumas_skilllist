@@ -8,6 +8,15 @@ import skillEffects from "./data/skill_effect.json";
 export default function Home() {
   const [evolve, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
+  const plans = {
+    F: "フリー",
+    S: "センス",
+    L: "ロジック",
+    A: "アノマリー"
+  };
+
+  const [selectedId, setSelectedId] = useState<number>(skillCards[0].ID);
+  const selectedCard = skillCards.find((card) => card.ID === selectedId);
 
   return (
     <div className="w-full">
@@ -109,19 +118,20 @@ export default function Home() {
                   <div className="flex flex-wrap">
                     <p className="pr-2 text-xs">
                       <Image
-                        src={`/skillcard/${skillCards[0].ID}_${evolve?"evolve":"default"}.png`}
-                        alt={`${skillCards[0].name}${evolve?"+":""}`}
+                        src={`/skillcard/${selectedCard?.ID}_${evolve?"evolve":"default"}.png`}
+                        alt={`${selectedCard?.name}${evolve&&selectedCard?.type!="T"?"+":""}のアイコン`}
                         width={50}
                         height={50}
                       />
-                      <span className="block">フリー</span>
+                      <span className="block">{ plans[selectedCard?.plan] }</span>
                       <span className="block">
-                        <span className="text-[.6rem] text-gray-400">開放PLv&nbsp;</span>{skillCards[0].plv}
+                        <span className="text-[.6rem] text-gray-400">開放PLv&nbsp;</span>{selectedCard?.plv}
                       </span>
                     </p>
                     <div className="flex-1">
                       <div className="mb-1 w-full border-b flex justify-between">
-                        <h3 className="text-sm font-semibold">{skillCards[0].name}{evolve?"+":""}</h3>
+                        <h3 className="text-sm font-semibold">{selectedCard?.name}{evolve&&selectedCard?.type!="T"?"+":""}</h3>
+                        {selectedCard?.type != "T" && (
                         <p className="text-xs">
                           <label className="checklabel block">
                             <input
@@ -132,22 +142,24 @@ export default function Home() {
                             <span className="act_h block rounded-full shadow-xs border border-gray-200 bg-white px-2 text-xs">強化</span>
                           </label>
                         </p>
+                        )}
                       </div>
                       {/* カード効果説明 */}
                       <p
                         className="text-xs"
                         dangerouslySetInnerHTML={{ __html: evolve
-                          ? skillCards[0].detail_evolve
-                          : skillCards[0].detail_default }}>
+                          ? selectedCard?.detail_evolve
+                          : selectedCard?.detail_default }}>
                       </p>
                     </div>
                   </div>
                 </div>
                 {/* カスタマイズ */}
+                {selectedCard?.custom_limit > 0 && (
                 <div className="w-full">
                   <p className="mb-2 text-[.6rem] text-center font-semibold border-b border-green-500">
                     <span className="inline-block px-2 border-t border-green-500 rounded-t-lg text-white bg-green-500">
-                      カスタマイズ可能数 {0}/{3}
+                      カスタマイズ可能数 {0}/{selectedCard?.custom_limit}
                     </span>
                   </p>
                   <div className="flex space-x-2 text-xs text-center">
@@ -313,6 +325,7 @@ export default function Home() {
                     <span className="inline-block w-1/5 text-center">{"-"}</span>
                   </p>
                 </div>
+                )}
               </div>
             </div>
           </div>
@@ -321,7 +334,10 @@ export default function Home() {
             <div className="flex flex-wrap">
               { skillCards.map( skillCard => { return (
                 <label key={skillCard.ID} className="skill_icon act_h block w-15 p-2">
-                  <input type="radio" name="card" value={skillCard.ID} className="hidden"/>
+                  <input type="radio" name="card" value={skillCard.ID} className="hidden"
+                    checked={selectedId === skillCard.ID}
+                    onChange={() => setSelectedId(skillCard.ID)}
+                  />
                   <span className="frame"></span>
                   <Image
                     src={`/skillcard/${skillCard.ID}_default.png`}
