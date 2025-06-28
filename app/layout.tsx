@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, IBM_Plex_Sans_JP } from "next/font/google";
 import "./globals.css";
 
 /* 基本フォント IBM Plex Sans JP */
-import { IBM_Plex_Sans_JP } from 'next/font/google';
 const ibmPlexSansJP = IBM_Plex_Sans_JP({
   subsets: ['latin'],
   display: 'swap',
