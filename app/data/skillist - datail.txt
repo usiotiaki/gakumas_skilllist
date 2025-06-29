@@ -7,7 +7,8 @@ rarity         -- レアリティ(N,R,SR,SSR,unique:固有,support:サポート�
 plan           -- プラン(S:センス,L:ロジック,A:アノマリー,F:共通)
 type           -- タイプ(A:アクティブ,M:メンタル,T:トラブル)
 detail_default -- 未強化時のカード効果説明
-detail_evolve  -- 強化後のカード効果説明
+detail_evolve  -- 強化後のカードの効果説明※カスタムで強化される効果箇所は`{0}`,`{1}`と置換する
+detail_custom  -- カスタム後の効果説明のデフォルト値※detail_evolveの`{0}`,`{1}`箇所。`,`区切りとする
 plv            -- 開放Plv
 cost_type      -- コストタイプ(energy:体力,no_fine:元気不可,conce:集中,condi:好調,imp:好印象,motiv:やる気,fp:全力値)
 cost           -- コスト消費数(数値)
