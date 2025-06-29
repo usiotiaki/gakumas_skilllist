@@ -3,7 +3,28 @@
 import Image from "next/image";
 import { useState } from 'react';
 import skillCards from "./data/skill_list.json";
+// カードのカスタム箇所のデフォルト効果値を配列に変換
+skillCards.map( skillCard => { 
+  Object.assign(skillCard, {"detail_custom_arr": skillCard.detail_custom.split(",")});
+});
 import skillEffects from "./data/skill_effect.json";
+
+/**
+  * @param str 置換前文字列 プレースホルダを`{0}`, `{1}`の形式で埋め込む
+  * @param ...args 第2引数以降で、置換する文字列を指定する
+  * ### Sample
+  * ```ts
+  * format('{0}とは、{1}までに身に付けた{2}の{3}である。', ...['常識', '18歳', '偏見', 'コレクション'])
+  * ```
+  * →`'常識とは、18歳までに身に付けた偏見のコレクションである。'`
+  */
+export const format = (str: string, ...args: unknown[]): string => {
+  for (const [i, arg] of args.entries()) {
+    const regExp = new RegExp(`\\{${i}\\}`, 'g')
+    str = str.replace(regExp, arg as string)
+  }
+  return str
+}
 
 export default function Home() {
   const [evolve, setChecked] = useState(false);
@@ -148,7 +169,7 @@ export default function Home() {
                       <p
                         className="text-xs"
                         dangerouslySetInnerHTML={{ __html: evolve
-                          ? selectedCard?.detail_evolve
+                          ? format(selectedCard?.detail_evolve, ...selectedCard?.detail_custom_arr)
                           : selectedCard?.detail_default }}>
                       </p>
                     </div>
