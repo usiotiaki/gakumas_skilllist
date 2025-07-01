@@ -1,11 +1,23 @@
 'use client'
 
 import Image from "next/image";
+import { Fragment } from 'react';
+
 import { useState } from 'react';
 import skillCards from "./data/skill_list.json";
-// カードのカスタム箇所のデフォルト効果値を配列に変換
+import skillCustoms from "./data/skill_custom.json";
+// カード情報整形
 skillCards.map( skillCard => { 
+  // カスタム箇所のデフォルト効果値を配列に変換して追加 /////
   Object.assign(skillCard, {"detail_custom_arr": skillCard.detail_custom.split(",")});
+  // カスタムの情報を整形して追加 /////
+  // スキルに紐づくカスタムを抽出し、グループ別に分けて追加
+  const custom_all = skillCustoms.filter((c) => c.skill_ID == skillCard.ID);
+  Object.assign(skillCard, {"custom_data": [
+    custom_all.filter((c) => c.group === 1),
+    custom_all.filter((c) => c.group === 2),
+    custom_all.filter((c) => c.group === 3)
+  ]});
 });
 import skillEffects from "./data/skill_effect.json";
 
@@ -184,147 +196,34 @@ export default function Home() {
                     </span>
                   </p>
                   <div className="flex space-x-2 text-xs text-center">
-                    <p className="w-1/3">
-                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
-                        <input type="checkbox" className="hidden" />
-                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
-                          <span className="block py-2 text-white">
-                            {"カスタム１-１"}
-                          </span>
-                          <span className="block leading-none">
-                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                              <Image
-                                src="/icon/p.png"
-                                alt="Pポイント"
-                                width={12}
-                                height={12}
-                                className="inline absolute left-1 top-0"
-                              />
-                              40
-                            </span>
-                          </span>
-                        </span>
-                        <span className="check"></span>
-                      </label>
-                      <span className="block text-center text-gray-400">
-                        ↓
-                      </span>
-                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
-                        <input type="checkbox" className="hidden" />
-                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
-                          <span className="block py-2 text-white">
-                            {"カスタム１-２"}
-                          </span>
-                          <span className="block leading-none">
-                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                              <Image
-                                src="/icon/p.png"
-                                alt="Pポイント"
-                                width={12}
-                                height={12}
-                                className="inline absolute left-1 top-0"
-                              />
-                              70
-                            </span>
-                          </span>
-                        </span>
-                        <span className="check"></span>
-                      </label>
-                      <span className="block text-center text-gray-400">
-                        ↓
-                      </span>
-                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
-                        <input type="checkbox" className="hidden" />
-                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-red-500 to-amber-500">
-                          <span className="block py-2 text-white">
-                            {"カスタム１-３"}
-                          </span>
-                          <span className="block leading-none">
-                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                              <Image
-                                src="/icon/p.png"
-                                alt="Pポイント"
-                                width={12}
-                                height={12}
-                                className="inline absolute left-1 top-0"
-                              />
-                              70
-                            </span>
-                          </span>
-                        </span>
-                        <span className="check"></span>
-                      </label>
-                    </p>
-                    <p className="w-1/3">
-                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
-                        <input type="checkbox" className="hidden" />
-                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-purple-500 to-fuchsia-400">
-                          <span className="block py-2 text-white">
-                            {"カスタム２-１"}
-                          </span>
-                          <span className="block leading-none">
-                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                              <Image
-                                src="/icon/p.png"
-                                alt="Pポイント"
-                                width={12}
-                                height={12}
-                                className="inline absolute left-1 top-0"
-                              />
-                              70
-                            </span>
-                          </span>
-                        </span>
-                        <span className="check"></span>
-                      </label>
-                      <span className="block text-center text-gray-400">
-                        ↓
-                      </span>
-                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
-                        <input type="checkbox" className="hidden" />
-                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-sky-500 to-cyan-300">
-                          <span className="block py-2 text-white">
-                            {"カスタム２-２"}
-                          </span>
-                          <span className="block leading-none">
-                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                              <Image
-                                src="/icon/p.png"
-                                alt="Pポイント"
-                                width={12}
-                                height={12}
-                                className="inline absolute left-1 top-0"
-                              />
-                              70
-                            </span>
-                          </span>
-                        </span>
-                        <span className="check"></span>
-                      </label>
-                    </p>
-                    <p className="w-1/3">
-                      <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
-                        <input type="checkbox" className="hidden" />
-                        <span className="custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r from-green-400 to-lime-400">
-                          <span className="block py-2 text-white">
-                            {"カスタム３"}
-                          </span>
-                          <span className="block leading-none">
-                            <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
-                              <Image
-                                src="/icon/p.png"
-                                alt="Pポイント"
-                                width={12}
-                                height={12}
-                                className="inline absolute left-1 top-0"
-                              />
-                              100
-                            </span>
-                          </span>
-                        </span>
-                        <span className="check"></span>
-                      </label>
-                    </p>
+                    { Array(3).fill(0).map((val, i) => {
+                      return (
+                        <p key={i} className="w-1/3">
+                          { selectedCard?.custom_data[i].map( (c, i) => { return (
+                            <Fragment key={c.ID}>
+                              { i > 0 && (
+                                <span className="block text-center text-gray-400">↓</span>
+                              ) }
+                              <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
+                                <input type="checkbox" className="hidden" />
+                                <span className={`custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r ${c.type}`}>
+                                  <span className="block py-2 text-white">
+                                    {c.name}
+                                  </span>
+                                  <span className="block leading-none">
+                                    <span className="relative inline-block border-t-3 border-white rounded-t-lg w-[5rem] leading-none bg-white">
+                                      <Image src="/icon/p.png" alt="Pポイント" width={12} height={12} className="inline absolute left-1 top-0"/>
+                                      {c.Ppoint}
+                                    </span>
+                                  </span>
+                                </span>
+                                <span className="check"></span>
+                              </label>
+                            </Fragment>
+                          ); }) }
+                        </p>
+                      );
+                    } ) }
                   </div>
                   <div className="flex px-2">
                     <span className="block flex-1 mr-2 h-[.6rem] border-b border-gray-400"></span>
