@@ -1,0 +1,122 @@
+[
+  {
+    "ID": 1,
+    "skill_ID": 18,
+    "name": "パラメータ+",
+    "type": "red",
+    "group": 1,
+    "step": 1,
+    "Ppoint": 40,
+    "effect": "15,-,-"
+  },
+  {
+    "ID": 2,
+    "skill_ID": 18,
+    "name": "パラメータ+",
+    "type": "red",
+    "group": 1,
+    "step": 2,
+    "Ppoint": 40,
+    "effect": "21,-,-"
+  },
+  {
+    "ID": 3,
+    "skill_ID": 18,
+    "name": "パラメータ+",
+    "type": "red",
+    "group": 1,
+    "step": 3,
+    "Ppoint": 70,
+    "effect": "39,-,-"
+  },
+  {
+    "ID": 4,
+    "skill_ID": 18,
+    "name": "好調+",
+    "type": "blue",
+    "group": 2,
+    "step": 1,
+    "Ppoint": 40,
+    "effect": "-,4,-"
+  },
+  {
+    "ID": 5,
+    "skill_ID": 18,
+    "name": "好調+",
+    "type": "blue",
+    "group": 2,
+    "step": 2,
+    "Ppoint": 40,
+    "effect": "-,5,-"
+  },
+  {
+    "ID": 6,
+    "skill_ID": 18,
+    "name": "好調+",
+    "type": "blue",
+    "group": 2,
+    "step": 3,
+    "Ppoint": 70,
+    "effect": "-,7,-"
+  },
+  {
+    "ID": 7,
+    "skill_ID": 18,
+    "name": "集中追加",
+    "type": "blue",
+    "group": 3,
+    "step": 1,
+    "Ppoint": 70,
+    "effect": "-,-,集中+2"
+  },
+  {
+    "ID": 8,
+    "skill_ID": 19,
+    "name": "好調追加",
+    "type": "blue",
+    "group": 1,
+    "step": 1,
+    "Ppoint": 70,
+    "effect": "-,好調2ターン,-"
+  },
+  {
+    "ID": 9,
+    "skill_ID": 19,
+    "name": "集中追加",
+    "type": "blue",
+    "group": 2,
+    "step": 1,
+    "Ppoint": 70,
+    "effect": "-,-,集中2ターン"
+  },
+  {
+    "ID": 10,
+    "skill_ID": 19,
+    "name": "パラメータ+",
+    "type": "red",
+    "group": 3,
+    "step": 1,
+    "Ppoint": 40,
+    "effect": "27,-,-"
+  },
+  {
+    "ID": 11,
+    "skill_ID": 19,
+    "name": "パラメータ+",
+    "type": "red",
+    "group": 3,
+    "step": 2,
+    "Ppoint": 40,
+    "effect": "33,-,-"
+  },
+  {
+    "ID": 12,
+    "skill_ID": 19,
+    "name": "パラメータ+",
+    "type": "red",
+    "group": 3,
+    "step": 3,
+    "Ppoint": 70,
+    "effect": "51,-,-"
+  }
+]
