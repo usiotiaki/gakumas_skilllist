@@ -3,20 +3,22 @@
 import Image from "next/image";
 import { Fragment } from 'react';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import type { SkillCard } from "./types/SkillCard";
+
 import skillCards from "./data/skill_list.json";
 import skillCustoms from "./data/skill_custom.json";
 // カード情報整形
 skillCards.map( skillCard => { 
   // カスタム箇所のデフォルト効果値を配列に変換して追加 /////
   Object.assign(skillCard, {"detail_custom_arr": skillCard.detail_custom.split(",")});
-  // カスタムの情報を整形して追加 /////
-  // スキルに紐づくカスタムを抽出し、グループ別に分けて追加
+  // スキルに紐づくカスタムを抽出し、group分けかつstep順にソートして追加
   const custom_all = skillCustoms.filter((c) => c.skill_ID == skillCard.ID);
   Object.assign(skillCard, {"custom_data": [
-    custom_all.filter((c) => c.group === 1),
-    custom_all.filter((c) => c.group === 2),
-    custom_all.filter((c) => c.group === 3)
+    custom_all.filter((c) => c.group === 1).sort((a,b) => {return a.step - b.step;}),
+    custom_all.filter((c) => c.group === 2).sort((a,b) => {return a.step - b.step;}),
+    custom_all.filter((c) => c.group === 3).sort((a,b) => {return a.step - b.step;})
   ]});
 });
 import skillEffects from "./data/skill_effect.json";
@@ -25,9 +27,7 @@ import skillEffects from "./data/skill_effect.json";
   * @param str 置換前文字列 プレースホルダを`{0}`, `{1}`の形式で埋め込む
   * @param ...args 第2引数以降で、置換する文字列を指定する
   * ### Sample
-  * ```ts
   * format('{0}とは、{1}までに身に付けた{2}の{3}である。', ...['常識', '18歳', '偏見', 'コレクション'])
-  * ```
   * →`'常識とは、18歳までに身に付けた偏見のコレクションである。'`
   */
 export const format = (str: string, ...args: unknown[]): string => {
@@ -49,7 +49,34 @@ export default function Home() {
   };
 
   const [selectedId, setSelectedId] = useState<number>(skillCards[0].ID);
-  const selectedCard = skillCards.find((card) => card.ID === selectedId);
+  const [selectedCard, setSelectedCard] = useState<SkillCard>(skillCards[0]);
+
+  const [selectedCustoms, setSelectedCustoms] = useState<string[]>([]);
+  const customReflect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // カスタム選択時、現在選択中のカスタムを管理する配列にIDを保存
+    const { value, checked } = e.target;
+    setSelectedCustoms((prev) =>
+      checked
+        ? [...prev, value] // チェックされた → 追加
+        : prev.filter((v) => v !== value) // 外された → 除外
+    );
+  };
+
+  const [customParams, setCustomParams] = useState<string[]>(selectedCard.detail_custom.split(","));
+  useEffect(() => {
+    // カスタム選択時、現在選択中のカスタムを集計
+    const customs = 
+      skillCustoms.filter((c) => selectedCustoms.includes(String(c.ID)) && c.skill_ID === selectedCard.ID)
+      .sort((a,b) => { return a.group === b.group ? a.step - b.step : a.group - b.group;});
+
+    const customParam = selectedCard?.detail_custom.split(",");
+    customs.map((c) => {
+      c.effect.split(",").map((ef,i) => {
+        if( ef !== "-" )customParam[i] = ef;
+      })
+    })
+    setCustomParams(customParam);
+  }, [selectedCustoms]);
 
   return (
     <div className="w-full">
@@ -170,7 +197,11 @@ export default function Home() {
                             <input
                               type="checkbox"
                               checked={evolve}
-                              onChange={(e) => setChecked(e.target.checked)}
+                              onChange={(e) => {
+                                setChecked(e.target.checked);
+                                setCustomParams(selectedCard.detail_custom.split(","));
+                                /* todo:カスタムの選択初期化 */
+                              }}
                             />
                             <span className="act_h block rounded-full shadow-xs border border-gray-200 bg-white px-2 text-xs">強化</span>
                           </label>
@@ -181,7 +212,7 @@ export default function Home() {
                       <p
                         className="text-xs"
                         dangerouslySetInnerHTML={{ __html: evolve
-                          ? format(selectedCard?.detail_evolve, ...selectedCard?.detail_custom_arr)
+                          ? format(selectedCard?.detail_evolve, ...customParams)
                           : selectedCard?.detail_default }}>
                       </p>
                     </div>
@@ -205,7 +236,7 @@ export default function Home() {
                                 <span className="block text-center text-gray-400">↓</span>
                               ) }
                               <label className="custom_btn act_h relative block mb-1 rounded-md bg-white">
-                                <input type="checkbox" className="hidden" />
+                                <input type="checkbox" className="hidden" name="custom" value={c.ID} onChange={customReflect} />
                                 <span className={`custom_btn_span relative block border-3 border-white rounded-md shadow-md bg-linear-to-r ${c.type}`}>
                                   <span className="block py-2 text-white">
                                     {c.name}
@@ -256,7 +287,11 @@ export default function Home() {
                 <label key={skillCard.ID} className="skill_icon act_h block w-15 p-2">
                   <input type="radio" name="card" value={skillCard.ID} className="hidden"
                     checked={selectedId === skillCard.ID}
-                    onChange={() => setSelectedId(skillCard.ID)}
+                    onChange={() => {
+                      setSelectedCard(skillCard);
+                      setCustomParams(skillCard.detail_custom.split(","));
+                      /* todo:カスタムの選択初期化 */
+                    }}
                   />
                   <span className="frame"></span>
                   <Image
