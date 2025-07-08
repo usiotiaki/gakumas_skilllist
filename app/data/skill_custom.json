@@ -7,7 +7,7 @@
     "group": 1,
     "step": 1,
     "Ppoint": 40,
-    "effect": "15,-,-"
+    "effect": "<em>15</em>,-,-"
   },
   {
     "ID": 2,
@@ -17,7 +17,7 @@
     "group": 1,
     "step": 2,
     "Ppoint": 40,
-    "effect": "21,-,-"
+    "effect": "<em>21</em>,-,-"
   },
   {
     "ID": 3,
@@ -27,7 +27,7 @@
     "group": 1,
     "step": 3,
     "Ppoint": 70,
-    "effect": "39,-,-"
+    "effect": "<em>39</em>,-,-"
   },
   {
     "ID": 4,
@@ -37,7 +37,7 @@
     "group": 2,
     "step": 1,
     "Ppoint": 40,
-    "effect": "-,4,-"
+    "effect": "-,<em>4</em>,-"
   },
   {
     "ID": 5,
@@ -47,7 +47,7 @@
     "group": 2,
     "step": 2,
     "Ppoint": 40,
-    "effect": "-,5,-"
+    "effect": "-,<em>5</em>,-"
   },
   {
     "ID": 6,
@@ -57,7 +57,7 @@
     "group": 2,
     "step": 3,
     "Ppoint": 70,
-    "effect": "-,7,-"
+    "effect": "-,<em>7</em>,-"
   },
   {
     "ID": 7,
@@ -67,7 +67,7 @@
     "group": 3,
     "step": 1,
     "Ppoint": 70,
-    "effect": "-,-,集中+2"
+    "effect": "-,-,<br><em>集中+2</em>"
   },
   {
     "ID": 8,
@@ -77,7 +77,7 @@
     "group": 1,
     "step": 1,
     "Ppoint": 70,
-    "effect": "-,好調2ターン,-"
+    "effect": "-,<br><em>好調2ターン</em>,-"
   },
   {
     "ID": 9,
@@ -87,7 +87,7 @@
     "group": 2,
     "step": 1,
     "Ppoint": 70,
-    "effect": "-,-,集中2ターン"
+    "effect": "-,-,<br><em>集中2ターン</em>"
   },
   {
     "ID": 10,
@@ -97,7 +97,7 @@
     "group": 3,
     "step": 1,
     "Ppoint": 40,
-    "effect": "27,-,-"
+    "effect": "<em>27</em>,-,-"
   },
   {
     "ID": 11,
@@ -107,7 +107,7 @@
     "group": 3,
     "step": 2,
     "Ppoint": 40,
-    "effect": "33,-,-"
+    "effect": "<em>33</em>,-,-"
   },
   {
     "ID": 12,
@@ -117,6 +117,6 @@
     "group": 3,
     "step": 3,
     "Ppoint": 70,
-    "effect": "51,-,-"
+    "effect": "<em>51</em>,-,-"
   }
 ]

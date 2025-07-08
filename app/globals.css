@@ -88,6 +88,12 @@ body {
   border-bottom-color: var(--color-white);
 }
 
+/* スキルカード詳細 */
+#skill_detail em{
+  font-style: inherit;
+  color: var(--color-green-500);
+}
+
 /* フィルタ */
 #filter {
   opacity: 0;
