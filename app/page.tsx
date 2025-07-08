@@ -288,6 +288,7 @@ export default function Home() {
                   <input type="radio" name="card" value={skillCard.ID} className="hidden"
                     checked={selectedId === skillCard.ID}
                     onChange={() => {
+                      setSelectedId(skillCard.ID);
                       setSelectedCard(skillCard);
                       setCustomParams(skillCard.detail_custom.split(","));
                       /* todo:カスタムの選択初期化 */
